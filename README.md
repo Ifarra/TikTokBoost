@@ -33,7 +33,7 @@ To run the TikTokBoost script, use the following command:
 python main.py
 ```
 
-> After a browser pop up you need to manually fill the CAPTCHA then click enter, after that you can you the command line interface from your cmd
+> After a browser pop up you need to manually fill the CAPTCHA then click enter on your keyboard, after that you can use the command line interface from your cmd
 
 The script will guide you through the necessary steps to start automating your TikTok growth tasks.
 
@@ -58,6 +58,8 @@ Modified by:
  [6] favorites [WORKS]
  [7] Set Limit
 ```
+
+> The availability of the feature depends on the third-party Zefoy.com
 
 ## Disclaimer
 
