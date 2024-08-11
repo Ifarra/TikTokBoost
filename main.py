@@ -5,6 +5,7 @@ import selenium
 from selenium.webdriver.chrome.options import Options as options
 from selenium.webdriver.common.by import By
 from interface.interface import interface
+import sys
 
 banner = """
 Modified by:
@@ -17,8 +18,15 @@ Modified by:
 
 class holo:
     def __init__(self):
+        self.show_process = False
         chrome_options = options()
         chrome_options.add_argument('--log-level=1')
+        chrome_options.add_argument('--incognito')
+        if '--show' in sys.argv:
+            pass
+        else:
+            chrome_options.add_argument('--headless')
+        
         self.driver = selenium.webdriver.Chrome(options=chrome_options)
         
         self.interface = interface()
@@ -365,6 +373,18 @@ class holo:
 if __name__ == "__main__":
     try:
         obj = holo()
+        if '--url' in sys.argv:
+            url_index = sys.argv.index('--url')
+            obj.input = sys.argv[url_index + 1]
+        
+        if '--comment' in sys.argv:
+            comment_index = sys.argv.index('--comment')
+            obj.input_comment = sys.argv[comment_index + 1]
+            
+        if '--limit' in sys.argv:
+            limit_index = sys.argv.index('--limit')
+            obj.limit = sys.argv[limit_index + 1]
+        
         obj.main()
     except Exception as e:
         print("\n" + str(e))

@@ -8,6 +8,8 @@ TikTokBoost is a Python-based tool that allows you to automate various TikTok gr
 
 - **auto captcha** = user no longer need to input captcha manually like in demo video
 - **fix Comments Hearts** = after input the url user need to input comments id, this is the video example of how to get it [video by plowside](https://youtu.be/AjRFf5jw9Vw)
+- **add command line arguments** = you can directly write link, comment id and limit when runing the script
+- **change default to headless** = change default selenium to headless, do "--show" to make browser visible
 
 ## Installation
 
@@ -37,7 +39,24 @@ To run the TikTokBoost script, use the following command:
 python main.py
 ```
 
-> After a browser pop up you need to manually fill the CAPTCHA then click enter on your keyboard, after that you can use the command line interface from your cmd
+you can use command line arguments for faster input
+
+- `--url [str]`
+- `--comment [str]`
+
+```
+# for url
+python main.py --url https://www.tiktok.com/@gatowcbyrsc112/video/7401028246650752264
+
+# for url and comment id
+python main.py --url https://www.tiktok.com/@gatowcbyrsc112/video/7401028246650752264 --comment 7401038661750326023
+```
+
+you can also make the browser visible by using show option
+
+```
+python main.py --show
+```
 
 The script will guide you through the necessary steps to start automating your TikTok growth tasks.
 
