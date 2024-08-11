@@ -1,10 +1,13 @@
-
 # TikTokBoost 🎵
 
 <div align="center"><img src=https://i.pinimg.com/originals/f2/2b/cf/f22bcf30acbab8d3fdffaa10c7926d19.gif></div>
 
-
 TikTokBoost is a Python-based tool that allows you to automate various TikTok growth tasks such as liking, following, sharing, and viewing. This project is highly inspired by the [xtekky-zefoy](https://github.com/xtekky/zefoy) repository.
+
+## Update 11/2024
+
+- **auto captcha** = user no longer need to input captcha manually like in demo video
+- **fix Comments Hearts** = after input the url user need to input comments id, this is the video example of how to get it [video by plowside](https://youtu.be/AjRFf5jw9Vw)
 
 ## Installation
 
@@ -38,11 +41,11 @@ python main.py
 
 The script will guide you through the necessary steps to start automating your TikTok growth tasks.
 
-## Interface 
+## Interface
 
 ```
 Modified by:
-██╗███████╗ █████╗ ██████╗ ██████╗  █████╗ 
+██╗███████╗ █████╗ ██████╗ ██████╗  █████╗
 ██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗
 ██║█████╗  ███████║██████╔╝██████╔╝███████║
 ██║██╔══╝  ██╔══██║██╔══██╗██╔══██╗██╔══██║
@@ -64,10 +67,7 @@ Modified by:
 
 ## Demo
 
-
 https://github.com/user-attachments/assets/1747b5ef-9b62-45c0-b3dc-8b1dfcadf86f
-
-
 
 ## Disclaimer
 
