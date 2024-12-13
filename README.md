@@ -1,4 +1,4 @@
-# TikTokBoost 🎵
+# TikTokBoost 🎵 (on maintenance, this script may not work on some device)
 
 <div align="center"><img src=https://i.pinimg.com/originals/f2/2b/cf/f22bcf30acbab8d3fdffaa10c7926d19.gif></div>
 
