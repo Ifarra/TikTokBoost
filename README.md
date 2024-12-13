@@ -4,6 +4,9 @@
 
 TikTokBoost is a Python-based tool that allows you to automate various TikTok growth tasks such as liking, following, sharing, and viewing. This project is highly inspired by the [xtekky-zefoy](https://github.com/xtekky/zefoy) repository.
 
+>[!WARNING]
+>on maintenance, this script is highly dependent on zefoy.com, so if there is an error from zefoy.com (ex: too many request) you cant do anything about that but wait until the feature is working properly, you can go directly to [zefoy](https://zefoy.com) to check it yourself before automate the process using this script.
+
 ## Update 11/2024
 
 - **auto captcha** = user no longer need to input captcha manually like in demo video
