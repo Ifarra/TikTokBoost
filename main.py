@@ -1,4 +1,5 @@
 # import undetected_chromedriver as uc
+import random
 import platform, os, time, requests
 from colorama import Fore
 import selenium
@@ -50,6 +51,7 @@ class holo:
         self.input  = ""
         self.input_comment = ""
         self.limit  = 0
+        self.debug_mode = False
         
             
     def main(self):
@@ -58,7 +60,7 @@ class holo:
             self.interface.change_title("TikTok Booster")
             
             print(self.color + banner)
-            print("\n" + self.interface._print("Waiting for Zefoy to load... 502 Error = Blocked country or VPN is on"))
+            print("\n" + self.interface._print("Waiting for Zefoy to load... (if you get a 502 Error = Blocked country or VPN is on)"))
             
             self.driver.get("https://zefoy.com")
             self.wait_for_xpath(self.captcha_box)
@@ -86,7 +88,7 @@ class holo:
             
             self.user_choice(option)
             
-        except Exception as e:
+        except Exception:
             self.driver.quit()
             time.sleep(3)
             os._exit(1)
@@ -121,7 +123,9 @@ class holo:
             self.check_limit(int(count_textv))
             self.send_bot(search_button, main_xpath, vid_info, div)
 
-        except Exception:
+        except Exception as e:
+            if self.debug_mode:
+                print(self.interface._print(str(e)))
             self.driver.refresh()
             self.wait_for_user(self.xpaths["followers"])
             time.sleep(5)
@@ -166,7 +170,9 @@ class holo:
             self.check_limit(int(count_textv))
             self.send_comment(search_button, main_xpath, vid_info, div)
 
-        except Exception:
+        except Exception as e:
+            if self.debug_mode:
+                print(self.interface._print(str(e)))
             self.driver.refresh()
             self.wait_for_user(self.xpaths["followers"])
             time.sleep(5)
@@ -199,14 +205,14 @@ class holo:
         if "READY" in element.text:
             return True, True
         
-        if "seconds for your next submit" in element.text:
-            output          = element.text.split("Please wait ")[1].split(" for")[0]
+        if "Please wait" in element.text:
+            output          = element.text.split("Please wait ")[1]
             minutes         = element.text.split("Please wait ")[1].split(" ")[0]
             seconds         = element.text.split("(s) ")[1].split(" ")[0]
             sleep_duration  = self.convert(minutes, seconds)
             
             return sleep_duration, output
-        
+         
         return element.text, None
         
     def check_status(self):
@@ -331,6 +337,7 @@ class holo:
             
     def ocr_from_image(self, image_path):
         try:
+            random_api = ["K85624412288957", "K88926368388957", "K88015676988957"]
             url = "https://api.ocr.space/parse/image"
             payload = {
             "language": "eng",
@@ -340,7 +347,7 @@ class holo:
             "filetype": "png"
             }
             headers = {
-                "apikey": "K87899142388957", #this api key is not mine lol
+                "apikey": random.choice(random_api),
             }
 
             with open(image_path, "rb") as image_file:
@@ -352,6 +359,8 @@ class holo:
             if response.status_code == 200:
                 return response.json()
             else:
+                if self.debug_mode:
+                    print("Error:", response.status_code)
                 return None
 
         except Exception as e:
@@ -384,9 +393,13 @@ if __name__ == "__main__":
         if '--limit' in sys.argv:
             limit_index = sys.argv.index('--limit')
             obj.limit = sys.argv[limit_index + 1]
+            
+        if '--debug' in sys.argv:
+            obj.debug_mode = True
         
         obj.main()
     except Exception as e:
         print("\n" + str(e))
         input("\nPress Enter to exit...")
         os._exit(1)
+
