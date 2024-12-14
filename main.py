@@ -333,7 +333,9 @@ class holo:
             return ocr_result["ParsedResults"][0]["ParsedText"]
         
         except Exception as e:
-            print(e)
+            if self.debug_mode:
+                print(self.interface._print(str(e)))
+            print(self.interface._print("Error : Captcha not found"))
             
     def ocr_from_image(self, image_path):
         try:
@@ -364,7 +366,9 @@ class holo:
                 return None
 
         except Exception as e:
-            print(e)
+            if self.debug_mode:
+                print(self.interface._print(str(e)))
+            print(self.interface._print("Error : Solving System not working properly"))
             
     def solve_captcha(self):
         try:
@@ -377,7 +381,9 @@ class holo:
             captcha_input.send_keys(captcha)
         
         except Exception as e:
-            print(e)
+            if self.debug_mode:
+                print(self.interface._print(str(e)))
+            print(self.interface._print("Error : Solving CAPTCHA not working properly"))
 
 if __name__ == "__main__":
     try:
